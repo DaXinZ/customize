@@ -21,7 +21,7 @@ spring:
   datasource:                                           # 数据源的相关配置
     type: com.zaxxer.hikari.HikariDataSource          # 数据源类型：HikariCP
     driver-class-name: com.mysql.cj.jdbc.Driver      # mysql驱动
-    url: jdbc:mysql://localhost:3306/shuoping?characterEncoding=UTF-8&useSSL=false&useUnicode=true&serverTimezone=Asia/Shanghai
+    url: jdbc:mysql://localhost:3306/customize?characterEncoding=UTF-8&useSSL=false&useUnicode=true&serverTimezone=Asia/Shanghai
     username: root
     password: 12345678
     hikari:
