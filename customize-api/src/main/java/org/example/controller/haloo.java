@@ -14,7 +14,7 @@ public class haloo {
     final  static Logger logger = LoggerFactory.getLogger(haloo.class);
     @GetMapping("/halo")
    public Object hello(){
-        String a = "asadasd";
+        String a = "asakdasd";
         logger.info(JSON.toJSONString(a));
         logger.error(JSON.toJSONString(a));
        return JSONResult.ok(a);
