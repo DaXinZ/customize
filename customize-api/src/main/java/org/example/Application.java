@@ -7,9 +7,9 @@ import org.springframework.context.annotation.ComponentScan;
 import tk.mybatis.spring.annotation.MapperScan;
 
 @SpringBootApplication(scanBasePackages = "org.example")
-@MapperScan(basePackages = "com.imooc.mapper")
+@MapperScan(basePackages = "org.mapper")
 //扫描所有包，以及相关组件包
-@ComponentScan(basePackages =  {"org.example","idworker"})
+@ComponentScan(basePackages =  {"org.n3r","org.n3r.idworker.strategy"})
 @ComponentScan("org.example.config")
 
 public class Application {
