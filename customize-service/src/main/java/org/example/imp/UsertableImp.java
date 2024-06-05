@@ -27,9 +27,18 @@ public class UsertableImp implements Usertableservice {
     @Transactional(propagation = Propagation.SUPPORTS)
     @Override
     public List<UsertableVO> queryUserInfo(String id)
-
     {
         List<UsertableVO>   usertableVO =  usertableMapperCustom.queryUserInfo(id);
+        return usertableVO;
+    }
+
+
+
+
+    @Transactional(propagation = Propagation.SUPPORTS)
+    @Override
+    public UsertableVO  queryuser(String id){
+        UsertableVO usertableVO = usertableMapperCustom.queryuser(id);
         return usertableVO;
     }
 

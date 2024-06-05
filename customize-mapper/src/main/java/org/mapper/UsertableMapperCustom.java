@@ -20,4 +20,12 @@ public interface UsertableMapperCustom {
      */
      public List<UsertableVO>  queryUserInfo(String id);
 
+
+    /**
+     *
+     * @param id
+     * @return
+     */
+    public UsertableVO queryuser(String id);
+
 }
