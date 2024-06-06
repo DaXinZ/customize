@@ -1,6 +1,7 @@
 package org.example.controller;
 
 
+import com.alibaba.fastjson.JSON;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.Bo.UserBo;
@@ -35,6 +36,7 @@ public class UserOperation {
 
 
        Usertable usertable = usertableservice.register(userBo);
+       logger.info(JSON.toJSONString(usertable));
         return JSONResult.ok(usertable);
 
     }

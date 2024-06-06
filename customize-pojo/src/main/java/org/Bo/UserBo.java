@@ -48,6 +48,10 @@ public class UserBo {
         this.id = id;
     }
 
+    public String getId() {
+        return id;
+    }
+
     public String getName() {
         return name;
     }
