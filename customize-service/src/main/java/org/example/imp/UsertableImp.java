@@ -59,7 +59,6 @@ public class UsertableImp implements Usertableservice {
     public Usertable register(UserBo userBo){
         RandomN randomN = new RandomN();
         Usertable user = new Usertable();
-        user.setId(randomN.ID());
         userBo.setId(randomN.ID());
         userBo.setName(userBo.getName());
         userBo.setNicknema(randomN.Nickname());
@@ -76,6 +75,7 @@ public class UsertableImp implements Usertableservice {
         userBo.setPhone(null);
         userBo.setCreationTime(new Date());
         userBo.setUpdateTime(new Date());
+
 
         usertableMapperCustom.register(userBo);
         return user;
