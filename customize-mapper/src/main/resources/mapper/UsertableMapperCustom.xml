@@ -4,7 +4,7 @@
 
 
   <resultMap id="queryUserInfo" type="org.pojo.Usertable" >
-    <id column="id" property="id" jdbcType="INTEGER" />
+    <id column="id" property="id" jdbcType="VARCHAR" />
     <result column="name" property="name" jdbcType="VARCHAR" />
     <result column="nicknema" property="nicknema" jdbcType="VARCHAR" />
     <result column="password" property="password" jdbcType="VARCHAR" />
@@ -31,7 +31,7 @@
 
 
   <resultMap id="queryuser" type="org.gather.UsertableVO" >
-    <id column="id" property="id" jdbcType="INTEGER" />
+    <id column="id" property="id" jdbcType="VARCHAR" />
     <result column="name" property="name" jdbcType="VARCHAR" />
     <result column="nicknema" property="nicknema" jdbcType="VARCHAR" />
     <result column="password" property="password" jdbcType="VARCHAR" />
@@ -54,7 +54,34 @@
       usertable  WHERE id = #{id}
   </select>
 
+  <resultMap id="register" type="org.pojo.Usertable" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="nicknema" property="nicknema" jdbcType="VARCHAR" />
+    <result column="password" property="password" jdbcType="VARCHAR" />
+    <result column="age" property="age" jdbcType="INTEGER" />
+    <result column="email" property="email" jdbcType="VARCHAR" />
+    <result column="personalizedSignature" property="personalizedsignature" jdbcType="VARCHAR" />
+    <result column="gender" property="gender" jdbcType="VARCHAR" />
+    <result column="ChatHeads" property="chatheads" jdbcType="VARCHAR" />
+    <result column="Phone" property="phone" jdbcType="INTEGER" />
+    <result column="site" property="site" jdbcType="VARCHAR" />
+    <result column="creation_time" property="creationTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+  </resultMap>
 
+  <select id="register"
+         resultType="org.pojo.Usertable"
+          parameterType="map">
+
+    INSERT INTO `customize`.`usertable` (id, name, nicknema, password, age,
+                                         email, personalizedSignature, gender,
+                                         ChatHeads, Phone, site, creation_time, update_time)
+    VALUES (#{id}, #{name}, #{nicknema}, #{password},
+            #{age}, #{email}, #{personalizedSignature},
+            #{gender}, #{ChatHeads}, #{Phone}, #{site}, #{creation_time}, #{update_time});
+
+  </select>
 
 
 

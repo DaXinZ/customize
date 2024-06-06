@@ -1,6 +1,8 @@
 package org.example;
 
+import org.Bo.UserBo;
 import org.gather.UsertableVO;
+import org.pojo.Usertable;
 
 import java.util.List;
 
@@ -23,6 +25,15 @@ public interface Usertableservice {
      * @return
      */
     public UsertableVO queryuser(String id);
+
+
+    /**
+     * 注册用户接口
+     * @param userBo
+     * @return
+     */
+
+    public Usertable register(UserBo userBo);
 
 
 }

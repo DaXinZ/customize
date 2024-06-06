@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class RandomN {
 
-    public    String RandomNickname() {
+    public    String Nickname() {
         String[]  name = new String[]{"赵","钱","孙","李","周","吴","郑","王","冯","陈","褚","卫","蒋","沈","韩",
                 "杨","朱","秦","尤","许","何","吕","施","张","孔","湛","汪","祁","毛","邵","禹","狄","米","贝","明",
                 "曹","严","华","金","魏","陶","姜","戚","谢","邹","喻","柏","水","窦","章","云","苏","潘","葛","奚",
@@ -146,14 +146,14 @@ public class RandomN {
 
 
 
-    public String  Randomage()
+    public Integer  age()
     {
         Random random = new Random();
         int age = (int) (Math.random() * 100);
-        return String.valueOf(age);
+        return age;
     }
 
-    public String Randomgender()
+    public String gender()
 
     {
         String[] gender = {"男","女","保密"};
@@ -163,7 +163,7 @@ public class RandomN {
         return gender1;
     }
 
-    public String Randomchatheads()
+    public String chatheads()
         {
             String[] chatheads = {
                     "https://q7.itc.cn/q_70/images03/20240423/6d236fae5c8f44ed9b60d977f32debb7.jpeg",
@@ -185,7 +185,7 @@ public class RandomN {
             return chatheads2;
     }
 
-    public String IDRandom() {
+    public String ID() {
         String[] val = {
                 "A","B","C","D","E","F","G",
                 "H","I","J","K","L","M","N",
@@ -207,10 +207,11 @@ public class RandomN {
     public static void main(String[] args) {
         RandomN random = new RandomN();
         System.out.println(random.RandompersonalizedSigna());
-        System.out.println(random.RandomNickname());
-        System.out.println(random.Randomgender());
-        System.out.println(random.Randomchatheads());
-        System.out.println(random.IDRandom());
+        System.out.println(random.Nickname());
+        System.out.println(random.gender());
+        System.out.println(random.chatheads());
+        System.out.println(random.ID());
+        System.out.println(random.age());
 
     }
 

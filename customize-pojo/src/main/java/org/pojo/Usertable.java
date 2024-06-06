@@ -9,7 +9,7 @@ public class Usertable {
      * 用户id
      */
     @Id
-    private Integer id;
+    private String id;
 
     /**
      * 用户名称
@@ -81,7 +81,7 @@ public class Usertable {
      *
      * @return id - 用户id
      */
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
@@ -90,7 +90,7 @@ public class Usertable {
      *
      * @param id 用户id
      */
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 

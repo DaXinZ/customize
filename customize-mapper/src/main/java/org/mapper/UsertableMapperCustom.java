@@ -1,5 +1,6 @@
 package org.mapper;
 
+import org.Bo.UserBo;
 import org.apache.ibatis.annotations.Mapper;
 import org.gather.UsertableVO;
 import org.my.mapper.MyMapper;
@@ -27,5 +28,14 @@ public interface UsertableMapperCustom {
      * @return
      */
     public UsertableVO queryuser(String id);
+
+
+    /**
+     * 注册
+     * @param userBo
+     * @return
+     */
+    public Usertable  register(UserBo userBo);
+
 
 }
