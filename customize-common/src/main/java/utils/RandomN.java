@@ -33,7 +33,8 @@ public class RandomN {
                 "烁","婷","蕊","宸","灏","妍","恺","淼","杰","嗳","龘","单",
                 "子涵", "思宇", "欣怡", "浩然", "瑾萱", "诗琪", "宇辰", "紫萱",
                 "一鸣", "雨彤", "皓轩", "子轩", "宇辰", "紫萱", "俊杰","子轩",
-                "俊杰", "晨曦", "梦洁","大新","八月","龙斗","邵兵",""
+                "俊杰", "晨曦", "梦洁","大新","八月","龙斗","邵兵","天天","婷婷",
+                "熬熬"
         };
         java.util.Random random = new java.util.Random();
 
@@ -195,7 +196,7 @@ public class RandomN {
         java.util.Random random = new java.util.Random();
         int vali = random.nextInt(val.length);
         String valiL = val[vali];
-        int num = random.nextInt(99999999);
+        int num = random.nextInt(999999999);
 
 
 
