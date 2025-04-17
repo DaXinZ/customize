@@ -14,7 +14,9 @@ public class isAlphaNumeric {
      return matcher.matches();
     }
 
+
     public static void main(String[] args) {
         System.out.println(isAlphaNumeric("%12&%……&*）"));
+
     }
 }

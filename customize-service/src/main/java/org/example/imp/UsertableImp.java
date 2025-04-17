@@ -1,8 +1,10 @@
 package org.example.imp;
 
 import org.Bo.UserBo;
+import org.Bo.UserVo;
 import org.example.Usertableservice;
 import org.gather.UsertableVO;
+import org.mapper.UsertableMapper;
 import org.mapper.UsertableMapperCustom;
 import org.pojo.Usertable;
 import org.slf4j.Logger;
@@ -11,12 +13,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
+import tk.mybatis.mapper.entity.Example;
 import utils.RandomN;
 
 import java.util.Date;
 import java.util.List;
-import java.util.Map;
-import java.util.Random;
 
 @Service
 public class UsertableImp implements Usertableservice {
@@ -24,7 +25,8 @@ public class UsertableImp implements Usertableservice {
     private static final Logger log = LoggerFactory.getLogger(UsertableImp.class);
     @Autowired
     private UsertableMapperCustom usertableMapperCustom;
-
+    @Autowired
+    private UsertableMapper usertableMapper;
 
 
     /**
@@ -42,60 +44,38 @@ public class UsertableImp implements Usertableservice {
     }
 
 
-    /**
-     *
-     * @param id
-     * @return
-     */
-    @Transactional(propagation = Propagation.SUPPORTS)
-    @Override
-    public UsertableVO  queryuser(String id){
-        UsertableVO usertableVO = usertableMapperCustom.queryuser(id);
-        return usertableVO;
-    }
-
 
     @Transactional(propagation = Propagation.REQUIRED)
     @Override
-    public Usertable register(UserBo userBo){
+    public UserVo register(UserBo userBo){
         RandomN randomN = new RandomN();
-        Usertable user = new Usertable();
+        UserVo userVo = new UserVo();
+        userVo.setId(randomN.ID());
+        userVo.setName(userBo.getName());
+        userVo.setNicknema(userBo.getNicknema());
+        userVo.setPassword(userBo.getPassword());
+        userVo.setGender(randomN.gender());
+        userVo.setAge(randomN.age());
+        userVo.setEmail(null);
+        userVo.setpersonalizedSignature(randomN.RandompersonalizedSigna());
+        userVo.setChatheads(randomN.chatheads());
+        userVo.setSite(null);
+        userVo.setPhone(null);
+        userVo.setCreationTime(new Date());
+        userVo.setUpdateTime(new Date());
 
-        userBo.setId(randomN.ID());
-        userBo.setName(userBo.getName());
-        userBo.setNicknema(randomN.Nickname());
-        userBo.setPassword(userBo.getPassword());
-        userBo.setName(userBo.getName());
-        userBo.setNicknema(randomN.Nickname());
-        userBo.setPassword(userBo.getPassword());
-        userBo.setGender(randomN.gender());
-        userBo.setAge(randomN.age());
-        userBo.setEmail(null);
-        userBo.setpersonalizedSignature(randomN.RandompersonalizedSigna());
-        userBo.setChatheads(randomN.chatheads());
-        userBo.setSite(null);
-        userBo.setPhone(null);
-        userBo.setCreationTime(new Date());
-        userBo.setUpdateTime(new Date());
-        user.setId(userBo.getId());
-        user.setName(userBo.getName());
-        user.setNicknema(userBo.getNicknema());
-        user.setPassword(userBo.getPassword());
-        user.setGender(userBo.getGender());
-        user.setAge(userBo.getAge());
-        user.setEmail(userBo.getEmail());
-        user.setPersonalizedsignature(userBo.getpersonalizedSignature());
-        user.setChatheads(userBo.getChatheads());
-        user.setSite(userBo.getSite());
-        user.setPhone(userBo.getPhone());
-        user.setCreationTime(userBo.getCreationTime());
-        user.setUpdateTime(userBo.getUpdateTime());
-
-
-
-        usertableMapperCustom.register(userBo);
-        return user;
+        usertableMapperCustom.register(userVo);
+        return userVo;
     }
+    @Transactional(propagation = Propagation.SUPPORTS)
+    @Override
+    public Usertable login(String name, String password) {
+        Example userExample = new Example(Usertable.class);
+        Example.Criteria userCriteria = userExample.createCriteria();
 
-
+        userCriteria.andEqualTo("name", name);
+        userCriteria.andEqualTo("password", password);
+        Usertable result = usertableMapper.selectOneByExample(userExample);
+        return result;
+    }
 }

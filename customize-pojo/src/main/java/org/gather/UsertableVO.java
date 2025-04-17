@@ -5,7 +5,7 @@ import javax.persistence.Id;
 import java.util.Date;
 
 public class UsertableVO {
-    private Integer id;
+    private String id;
     private String name;
     private String nicknema;
     private String password;
@@ -19,11 +19,11 @@ public class UsertableVO {
     private Date creationTime;
     private Date updateTime;
 
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 

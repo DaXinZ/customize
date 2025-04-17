@@ -46,15 +46,5 @@ public class UsertableController {
     }
 
 
-    @ApiOperation(value = "查询用户相关信息", notes = "查询用户相关信息2", httpMethod = "GET")
-    @GetMapping("/query.json")
-    public JSONResult query( @ApiParam(name = "id", value = "用户id", required = false
-    ) @RequestParam String id ){
-
-        logger.info("入参："+id);
-        UsertableVO usertableVO = usertableservice.queryuser(id);
-        return JSONResult.ok(usertableVO);
-    }
-
 
 }
