@@ -1,12 +1,9 @@
 package org.mapper;
 
-import org.Bo.UserBo;
 import org.Bo.UserVo;
+import org.Bo.UsernewBo;
 import org.apache.ibatis.annotations.Mapper;
 import org.gather.UsertableVO;
-import org.my.mapper.MyMapper;
-import org.pojo.Usertable;
-import org.springframework.context.annotation.Bean;
 
 import java.util.List;
 
@@ -21,6 +18,13 @@ public interface UsertableMapperCustom {
      * @return
      */
      public List<UsertableVO>  queryUserInfo(String id);
+
+
+     /**
+      * @param UsernewBo
+      * @return
+      */
+     public List<UserVo> queryUser(UsernewBo UsernewBo);
 
 
 

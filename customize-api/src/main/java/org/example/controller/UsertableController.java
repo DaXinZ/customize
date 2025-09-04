@@ -6,8 +6,11 @@ import com.alibaba.fastjson.serializer.SerializerFeature;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
+import org.Bo.UserVo;
+import org.Bo.UsernewBo;
 import org.example.Usertableservice;
 import org.gather.UsertableVO;
+import org.pojo.Usertable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,8 +18,6 @@ import org.springframework.web.bind.annotation.*;
 import utils.JSONResult;
 
 import java.util.List;
-
-import static com.alibaba.fastjson.serializer.SerializerFeature.WriteMapNullValue;
 
 @Api(value = "用户接口", tags = {"用户相关信息的查询修改接口"})
 @RestController
@@ -45,6 +46,26 @@ public class UsertableController {
 
     }
 
+    @ApiOperation(value = "新查询用户相关信息", notes = "新查询用户相关信息", httpMethod = "POST")
+    @PostMapping("/queryuser.json")
+    public JSONResult queryUser(@RequestBody UsernewBo usernewBo )
+        {
+        logger.info("接受入参"+usernewBo);
+
+            usernewBo.getNickname();
+            usernewBo.getAge();
+            usernewBo.getName();
+            usernewBo.getId();
+        List<UserVo> UsernewBo1 = usertableservice.queryUser(usernewBo);
 
 
-}
+        logger.info(JSON.toJSONString(usernewBo, SerializerFeature.WriteMapNullValue));
+        return  JSONResult.ok(UsernewBo1);
+        }
+
+    }
+
+
+
+
+

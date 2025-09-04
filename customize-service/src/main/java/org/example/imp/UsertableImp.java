@@ -2,6 +2,7 @@ package org.example.imp;
 
 import org.Bo.UserBo;
 import org.Bo.UserVo;
+import org.Bo.UsernewBo;
 import org.example.Usertableservice;
 import org.gather.UsertableVO;
 import org.mapper.UsertableMapper;
@@ -20,7 +21,7 @@ import java.util.Date;
 import java.util.List;
 
 @Service
-public class UsertableImp implements Usertableservice {
+public   class UsertableImp implements Usertableservice {
 
     private static final Logger log = LoggerFactory.getLogger(UsertableImp.class);
     @Autowired
@@ -45,6 +46,34 @@ public class UsertableImp implements Usertableservice {
 
 
 
+
+
+    /**
+     * 最新查询用户信息整合
+     *
+     * @param id
+     * @return
+     */
+    @Transactional(propagation = Propagation.SUPPORTS)
+    @Override
+    public List<UserVo> queryUser(UsernewBo usernewBo)
+
+    {
+        UserVo userVo = new UserVo();
+        userVo.setAge(usernewBo.getAge());
+        userVo.setId(usernewBo.getId());
+        userVo.setNicknema(usernewBo.getNickname());
+        userVo.setName(usernewBo.getName());
+        List<UserVo> UserV1o =  usertableMapperCustom.queryUser(usernewBo);
+        return UserV1o;
+    }
+
+
+    /**
+     * 注册用户
+     * @param userBo
+     * @return
+     */
     @Transactional(propagation = Propagation.REQUIRED)
     @Override
     public UserVo register(UserBo userBo){
@@ -78,4 +107,7 @@ public class UsertableImp implements Usertableservice {
         Usertable result = usertableMapper.selectOneByExample(userExample);
         return result;
     }
+
+
+
 }

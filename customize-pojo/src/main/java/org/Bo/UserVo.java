@@ -3,6 +3,7 @@ package org.Bo;
 import io.swagger.annotations.ApiModelProperty;
 
 import java.util.Date;
+import java.util.List;
 
 public class UserVo {
     @ApiModelProperty(value = "用户id", name = "id", example = "123456", required = false)
