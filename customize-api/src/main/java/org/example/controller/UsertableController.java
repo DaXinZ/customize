@@ -37,31 +37,15 @@ public class UsertableController {
     @ApiOperation(value = "查询用户相关信息", notes = "查询用户相关信息", httpMethod = "GET")
     @GetMapping("/queryUserInfo.json")
     public JSONResult queryUserInfo( @ApiParam(name = "id", value = "用户id", required = false
-    ) @RequestParam String id )
+    ) @RequestParam String classify )
     {
-        logger.info("接受入参"+id);
-        List<UsertableVO>  usertableVO = usertableservice.queryUserInfo(id);
+        logger.info("接受入参"+classify);
+        List<UsertableVO>  usertableVO = usertableservice.queryUserInfo(classify);
         logger.info(JSON.toJSONString(usertableVO, SerializerFeature.WriteMapNullValue));
         return  JSONResult.ok(usertableVO);
 
     }
 
-    @ApiOperation(value = "新查询用户相关信息", notes = "新查询用户相关信息", httpMethod = "POST")
-    @PostMapping("/queryuser.json")
-    public JSONResult queryUser(@RequestBody UsernewBo usernewBo )
-        {
-        logger.info("接受入参"+usernewBo);
-
-            usernewBo.getNickname();
-            usernewBo.getAge();
-            usernewBo.getName();
-            usernewBo.getId();
-        List<UserVo> UsernewBo1 = usertableservice.queryUser(usernewBo);
-
-
-        logger.info(JSON.toJSONString(usernewBo, SerializerFeature.WriteMapNullValue));
-        return  JSONResult.ok(UsernewBo1);
-        }
 
     }
 
