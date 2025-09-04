@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.mapper.DishinformationMapper" >
+  <resultMap id="BaseResultMap" type="org.pojo.Dishinformation" >
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <result column="id" property="id" jdbcType="INTEGER" />
+    <result column="uid" property="uid" jdbcType="VARCHAR" />
+    <result column="DishName" property="dishname" jdbcType="VARCHAR" />
+    <result column="DishDescription" property="dishdescription" jdbcType="VARCHAR" />
+    <result column="collect" property="collect" jdbcType="INTEGER" />
+    <result column="purchaseTime" property="purchasetime" jdbcType="INTEGER" />
+    <result column="FoodPictures" property="foodpictures" jdbcType="VARCHAR" />
+    <result column="classify" property="classify" jdbcType="VARCHAR" />
+  </resultMap>
+</mapper>
