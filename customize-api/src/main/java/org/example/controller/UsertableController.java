@@ -6,11 +6,8 @@ import com.alibaba.fastjson.serializer.SerializerFeature;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
-import org.Bo.UserVo;
-import org.Bo.UsernewBo;
-import org.example.Usertableservice;
+import org.example.UsertableService;
 import org.gather.UsertableVO;
-import org.pojo.Usertable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,9 +21,9 @@ import java.util.List;
 @RequestMapping("User")
 public class UsertableController {
     @Autowired
-    private Usertableservice   usertableservice;
+    private UsertableService usertableservice;
 
-    final  static Logger logger = LoggerFactory.getLogger(Usertableservice.class);
+    final  static Logger logger = LoggerFactory.getLogger(UsertableService.class);
 
 
     /**

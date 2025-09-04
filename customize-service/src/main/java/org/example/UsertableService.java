@@ -5,13 +5,11 @@ import org.Bo.UserVo;
 import org.Bo.UsernewBo;
 import org.gather.UsertableVO;
 import org.pojo.Usertable;
-import org.springframework.transaction.annotation.Propagation;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 
-public interface Usertableservice {
+public interface UsertableService {
 
 
     /**

@@ -3,7 +3,7 @@ package org.example.imp;
 import org.Bo.UserBo;
 import org.Bo.UserVo;
 import org.Bo.UsernewBo;
-import org.example.Usertableservice;
+import org.example.UsertableService;
 import org.gather.UsertableVO;
 import org.mapper.UsertableMapper;
 import org.mapper.UsertableMapperCustom;
@@ -21,7 +21,7 @@ import java.util.Date;
 import java.util.List;
 
 @Service
-public   class UsertableImp implements Usertableservice {
+public   class UsertableImp implements UsertableService {
 
     private static final Logger log = LoggerFactory.getLogger(UsertableImp.class);
     @Autowired

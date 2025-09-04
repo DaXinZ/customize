@@ -7,8 +7,7 @@ import io.swagger.annotations.ApiOperation;
 import org.Bo.UserBo;
 import org.Bo.UserVo;
 import org.apache.commons.lang3.StringUtils;
-import org.example.Usertableservice;
-import org.gather.UsertableVO;
+import org.example.UsertableService;
 import org.pojo.Usertable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,14 +20,13 @@ import utils.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.List;
 
 @Api(value = "用户接口", tags = {"用于用户注册更新等"})
 @RestController
 @RequestMapping("Users")
 public class UserOperation {
     @Autowired
-    private Usertableservice usertableservice;
+    private UsertableService usertableservice;
 
     final  static Logger log = LoggerFactory.getLogger(UserOperation.class);
 
