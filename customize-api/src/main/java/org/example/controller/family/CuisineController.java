@@ -2,6 +2,7 @@ package org.example.controller.family;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.serializer.SerializerFeature;
+import com.github.pagehelper.PageInfo;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
@@ -15,7 +16,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import utils.JSONResult;
+import utils.PageResult;
 import utils.PagedGridResult;
+import utils.SimplePageResult;
 
 import java.util.List;
 
@@ -33,7 +36,7 @@ public class CuisineController {
 
     /**
      * 查询菜系
-     * @param id
+     * @param classify
      * @return
      */
     @ApiOperation(value = "查询菜系", notes = "查询菜系", httpMethod = "GET")
@@ -48,6 +51,7 @@ public class CuisineController {
 
     }
 
+
     @ApiOperation(value = "查询菜品", notes = "查询菜品", httpMethod = "POST")
     @PostMapping("/queryCuisine.json")
     public JSONResult queryCuisine(
@@ -55,30 +59,22 @@ public class CuisineController {
             @RequestBody CuisineBo cuisineBo
 
     )
+    {
 
-
-        {
-
-            String classify = cuisineBo.getClassify();
-            Integer menuCommand = cuisineBo.getMenuCommand();
-
-
-            if (classify ==null){
-                logger.info("接受入参"+cuisineBo);
-                return  JSONResult.errorMsg("菜系不允许为空");
-            }
-            if (cuisineBo.getMenuCommand() == null){
-                cuisineBo.setMenuCommand(1);
-            }
-
-
-
-
-            List<CuisineVo> cuisine = DishinformationService.queryCuisine(cuisineBo);
-            logger.info(JSON.toJSONString(cuisine, SerializerFeature.WriteMapNullValue));
-            return  JSONResult.ok(cuisine);
-
+        String classify = cuisineBo.getClassify();
+        Integer menuCommand = cuisineBo.getMenuCommand();
+        if (classify ==null){
+            logger.info("接受入参"+cuisineBo);
+            return  JSONResult.errorMsg("菜系不允许为空");
         }
+        if (cuisineBo.getMenuCommand() == null){
+            cuisineBo.setMenuCommand(1);
+        }
+        SimplePageResult<CuisineVo> cuisine = DishinformationService.queryCuisine(cuisineBo);
+        logger.info(JSON.toJSONString(cuisine, SerializerFeature.WriteMapNullValue));
+        return  JSONResult.ok(cuisine);
+
+    }
 
 
 

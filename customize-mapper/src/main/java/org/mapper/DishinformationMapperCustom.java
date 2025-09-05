@@ -1,5 +1,6 @@
 package org.mapper;
 
+import com.github.pagehelper.PageInfo;
 import org.Bo.CuisineBo;
 import org.Cuisine.CuisineVo;
 import org.pojo.Dishinformation;
@@ -14,5 +15,7 @@ public interface DishinformationMapperCustom {
      * @return
      */
     public  List<CuisineVo> queryCuisine(CuisineBo cuisineBo);
+
+
 
 }

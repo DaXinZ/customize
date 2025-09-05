@@ -16,10 +16,28 @@
 
 
   <select id = "queryCuisine" resultMap="queryCuisine" parameterType="map">
-
-
     SELECT * FROM DishInformation WHERE classify = #{classify} and MenuCommand = #{MenuCommand}
-
-
   </select>
+
+
+  <resultMap id="queryCuisineon" type="org.Cuisine.DishinformationVo" >
+
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="uid" jdbcType="VARCHAR" property="uid" />
+    <result column="DishName" jdbcType="VARCHAR" property="dishname" />
+    <result column="DishDescription" jdbcType="VARCHAR" property="dishdescription" />
+    <result column="collect" jdbcType="INTEGER" property="collect" />
+    <result column="purchaseTime" jdbcType="INTEGER" property="purchasetime" />
+    <result column="FoodPictures" jdbcType="VARCHAR" property="foodpictures" />
+    <result column="classify" jdbcType="VARCHAR" property="classify" />
+    <result column="MenuCommand" jdbcType="INTEGER" property="menucommand" />
+  </resultMap>
+
+
+  <select id = "queryCuisineon" parameterType="org.Bo.CuisineBo" resultMap="queryCuisineon" >
+    SELECT * FROM DishInformation WHERE classify = #{classify} and MenuCommand = #{MenuCommand}
+  </select>
+
+
+
 </mapper>
