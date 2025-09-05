@@ -1,10 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="org.mapper.DishinformationMapper">
-  <resultMap id="BaseResultMap" type="org.pojo.Dishinformation">
-    <!--
-      WARNING - @mbg.generated
-    -->
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.mapper.DishinformationMapper" >
+  <resultMap id="BaseResultMap" type="org.Cuisine.DishinformationVo" >
+
     <result column="id" jdbcType="INTEGER" property="id" />
     <result column="uid" jdbcType="VARCHAR" property="uid" />
     <result column="DishName" jdbcType="VARCHAR" property="dishname" />
@@ -15,5 +13,4 @@
     <result column="classify" jdbcType="VARCHAR" property="classify" />
     <result column="MenuCommand" jdbcType="INTEGER" property="menucommand" />
   </resultMap>
-
 </mapper>

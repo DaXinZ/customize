@@ -1,8 +1,8 @@
-package org.pojo;
+package org.Cuisine;
 
 import javax.persistence.Column;
 
-public class Dishinformation {
+public class DishinformationVo {
     /**
      * id
      */
