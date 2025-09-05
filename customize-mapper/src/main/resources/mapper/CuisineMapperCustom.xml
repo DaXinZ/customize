@@ -3,7 +3,7 @@
 <mapper namespace="org.mapper.CuisineMapperCustom" >
 
 
-  <resultMap id="Cuisinename" type="org.Cuisine.CuisineVo" >
+  <resultMap id="queryCuisinename" type="org.Cuisine.CuisineVo" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="Cuisinename" property="Cuisinename" jdbcType="VARCHAR" />
     <result column="uid" property="uid" jdbcType="VARCHAR" />

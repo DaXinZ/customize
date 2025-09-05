@@ -34,10 +34,10 @@ public class UsertableController {
     @ApiOperation(value = "查询用户相关信息", notes = "查询用户相关信息", httpMethod = "GET")
     @GetMapping("/queryUserInfo.json")
     public JSONResult queryUserInfo( @ApiParam(name = "id", value = "用户id", required = false
-    ) @RequestParam String classify )
+    ) @RequestParam String id )
     {
-        logger.info("接受入参"+classify);
-        List<UsertableVO>  usertableVO = usertableservice.queryUserInfo(classify);
+        logger.info("接受入参"+id);
+        List<UsertableVO>  usertableVO = usertableservice.queryUserInfo(id);
         logger.info(JSON.toJSONString(usertableVO, SerializerFeature.WriteMapNullValue));
         return  JSONResult.ok(usertableVO);
 

@@ -21,7 +21,11 @@ public class CuisineImp implements CuisineSevice {
     @Autowired
     private CuisineMapper cuisineMapper;
 
-
+    /**
+     * 查询菜系
+     * @param classify
+     * @return
+     */
     @Override
     public List<Cuisine> queryCuisinename (String classify){
         List<Cuisine> cuisineVo = cuisineMapperCustom.queryCuisinename(classify);

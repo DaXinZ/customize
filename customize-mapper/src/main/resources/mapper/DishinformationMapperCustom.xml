@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="org.mapper.DishinformationMapper" >
-  <resultMap id="BaseResultMap" type="org.Cuisine.DishinformationVo" >
+<mapper namespace="org.mapper.DishinformationMapperCustom" >
+  <resultMap id="queryCuisine" type="org.Cuisine.DishinformationVo" >
 
     <result column="id" jdbcType="INTEGER" property="id" />
     <result column="uid" jdbcType="VARCHAR" property="uid" />
@@ -13,4 +13,13 @@
     <result column="classify" jdbcType="VARCHAR" property="classify" />
     <result column="MenuCommand" jdbcType="INTEGER" property="menucommand" />
   </resultMap>
+
+
+  <select id = "queryCuisine" resultMap="queryCuisine" parameterType="map">
+
+
+    SELECT * FROM DishInformation WHERE classify = #{classify} and MenuCommand = #{MenuCommand}
+
+
+  </select>
 </mapper>
